@@ -23,6 +23,12 @@ You can either run the program using the command line, or by using the Jupyter N
 To run the program using the command line, run the following command:
 
 ```bash
+python train.py
+```
+
+**Experimental: I am currently developing a web app to pair with this project.** You can run the web app using the following command:
+
+```bash
 python app.py
 ```
 

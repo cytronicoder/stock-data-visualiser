@@ -1,4 +1,5 @@
 alpha-vantage
+flask
 matplotlib
 numpy
 torch
