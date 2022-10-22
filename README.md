@@ -4,7 +4,7 @@ This is a simple stock data visualiser that uses the [Alpha Vantage API](https:/
 
 The aim of this project is to build a fully functional LSTM model that predicts future stock prices based on historical prices using PyTorch. It is currently in development, and I will be adding more features as I learn more about data visualisation.
 
-![IBM Stock Price Prediction](images/graph_1.png)
+![IBM Stock Price Prediction](images/graph.png)
 
 ## Installation
 

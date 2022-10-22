@@ -7,7 +7,7 @@ from alpha_vantage.timeseries import TimeSeries
 
 def download_data(config):
     """
-    Download data from Alpha Vantage API
+    Download data from Alpha Vantage API.
     """
     ts = TimeSeries(key=config["alpha_vantage"]["key"])
 
@@ -40,6 +40,9 @@ def download_data(config):
 
 
 def prepare_x(x, window_size):
+    """
+    Prepare data for training.
+    """
     output = np.lib.stride_tricks.as_strided(
         x,
         shape=(x.shape[0] - window_size + 1, window_size),
@@ -49,4 +52,7 @@ def prepare_x(x, window_size):
 
 
 def prepare_y(x, window_size):
+    """
+    Prepare data for training.
+    """
     return x[window_size:]

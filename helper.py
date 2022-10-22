@@ -6,21 +6,34 @@ from torch.utils.data import Dataset
 
 
 class Normalizer:
+    """
+    Normalize data to standardize the range of the values before feeding them into the model.
+    """
     def __init__(self):
         self.mu = None
         self.sd = None
 
     def fit_transform(self, x):
+        """
+        Transforming all the features using the mean and variance of the training data.
+        """
         self.mu = np.mean(x, axis=(0), keepdims=True)
         self.sd = np.std(x, axis=(0), keepdims=True)
         normalized_x = (x - self.mu) / self.sd
         return normalized_x
 
     def inverse_transform(self, x):
-        return (x * self.sd) + self.mu
+        """
+        Scale back the data to its original representation.
+        """
+        inverse_transform_x = x * self.sd + self.mu
+        return inverse_transform_x
 
 
 class LSTMModel(nn.Module):
+    """
+    Learn more about the model here: https://pytorch.org/docs/stable/generated/torch.nn.LSTM.html
+    """
     def __init__(
         self,
         input_size=1,
@@ -46,6 +59,9 @@ class LSTMModel(nn.Module):
         self.init_weights()
 
     def init_weights(self):
+        """
+        Initialize weights for the linear layers.
+        """
         for name, param in self.lstm.named_parameters():
             if "bias" in name:
                 nn.init.constant_(param, 0.0)
@@ -55,6 +71,9 @@ class LSTMModel(nn.Module):
                 nn.init.orthogonal_(param)
 
     def forward(self, x):
+        """
+        Forward pass through the model.
+        """
         batchsize = x.shape[0]
 
         # Layer 1
@@ -74,6 +93,9 @@ class LSTMModel(nn.Module):
 
 
 class TimeSeriesDataset(Dataset):
+    """
+    Data loader
+    """
     def __init__(self, x, y):
         x = np.expand_dims(
             x, 2
