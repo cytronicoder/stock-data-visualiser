@@ -1,7 +1,7 @@
 # Data analysis
 import numpy as np
 
-# API
+# API wrapper
 from alpha_vantage.timeseries import TimeSeries
 
 
@@ -11,6 +11,7 @@ def download_data(config):
     """
     ts = TimeSeries(key=config["alpha_vantage"]["key"])
 
+    # Get data
     data, meta_data = ts.get_daily_adjusted(
         symbol=config["alpha_vantage"]["symbol"],
         outputsize=config["alpha_vantage"]["output_size"],

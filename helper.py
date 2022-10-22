@@ -9,10 +9,12 @@ class Normalizer:
     """
     Normalize data to standardize the range of the values before feeding them into the model.
     """
+
     def __init__(self):
         self.mu = None
         self.sd = None
 
+    # Transformers
     def fit_transform(self, x):
         """
         Transforming all the features using the mean and variance of the training data.
@@ -34,6 +36,8 @@ class LSTMModel(nn.Module):
     """
     Learn more about the model here: https://pytorch.org/docs/stable/generated/torch.nn.LSTM.html
     """
+
+    # Initialize the layers
     def __init__(
         self,
         input_size=1,
@@ -47,12 +51,15 @@ class LSTMModel(nn.Module):
 
         self.linear_1 = nn.Linear(input_size, hidden_layer_size)
         self.relu = nn.ReLU()
+
+        # LSTM
         self.lstm = nn.LSTM(
             hidden_layer_size,
             hidden_size=self.hidden_layer_size,
             num_layers=num_layers,
             batch_first=True,
         )
+
         self.dropout = nn.Dropout(dropout)
         self.linear_2 = nn.Linear(num_layers * hidden_layer_size, output_size)
 
@@ -83,7 +90,7 @@ class LSTMModel(nn.Module):
         # LSTM
         lstm_out, (h_n, c_n) = self.lstm(x)
 
-        # Reshape from hidden cell
+        # Reshape from hidden cell state
         x = h_n.permute(1, 0, 2).reshape(batchsize, -1)
 
         # Layer 2
@@ -96,6 +103,8 @@ class TimeSeriesDataset(Dataset):
     """
     Data loader
     """
+
+    # constructors
     def __init__(self, x, y):
         x = np.expand_dims(
             x, 2
@@ -103,8 +112,10 @@ class TimeSeriesDataset(Dataset):
         self.x = x.astype(np.float32)
         self.y = y.astype(np.float32)
 
+    # length
     def __len__(self):
         return len(self.x)
 
+    # getter
     def __getitem__(self, idx):
         return (self.x[idx], self.y[idx])
