@@ -4,7 +4,7 @@ This is a simple stock data visualiser that uses the [Alpha Vantage API](https:/
 
 The aim of this project is to build a fully functional LSTM model that predicts future stock prices based on historical prices using PyTorch. It is currently in development, and I will be adding more features as I learn more about data visualisation.
 
-![IBM Stock Price Prediction](images/graph.png)
+![IBM Stock Price Prediction](static/images/graph.png)
 
 ## Installation
 
@@ -23,7 +23,7 @@ You can either run the program using the command line, or by using the Jupyter N
 To run the program using the command line, run the following command:
 
 ```bash
-python train.py
+python lstm-model/train.py
 ```
 
 **Experimental: I am currently developing a web app to pair with this project.** You can run the web app using the following command:

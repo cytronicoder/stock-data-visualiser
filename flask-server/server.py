@@ -2,10 +2,10 @@ from flask import Flask
 
 app = Flask(__name__)
 
-
+# Skeleton code for the Flask server
 @app.route("/")
-def hello_world():
-    return "Hello, world!"
+def hello():
+    return "Hello World!"
 
 
 if __name__ == "__main__":
