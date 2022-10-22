@@ -169,7 +169,11 @@ y_val_pred = np.where(y_val_pred == 0, None, y_val_pred)
 fig = figure(figsize=(25, 5), dpi=80)
 fig.patch.set_facecolor((1.0, 1.0, 1.0))
 
-plt.title("Compare predicted prices to actual prices")
+plt.title(
+    "Compare predicted prices to actual prices for {}".format(
+        config["alpha_vantage"]["symbol"]
+    )
+)
 
 xticks = [
     data_date[i]
@@ -187,6 +191,8 @@ xticks = [
 x = np.arange(0, len(xticks))
 plt.xticks(x, xticks, rotation="vertical")
 plt.grid(visible=True, which="major", axis="y", linestyle="--")
+
+plt.ylabel("Price (USD)")
 
 plt.plot(
     data_date,
@@ -239,6 +245,8 @@ xs = np.arange(0, len(xticks))
 plt.xticks(xs, xticks, rotation="vertical")
 plt.grid(visible=True, which="major", axis="y", linestyle="--")
 
+plt.ylabel("Price (USD)")
+
 plt.plot(
     date,
     y_val_subset,
@@ -278,6 +286,7 @@ y_test_pred[plot_range - 1] = scaler.inverse_transform(prediction)
 y_test_pred = np.where(y_test_pred == 0, None, y_test_pred)
 
 print(
-    "Predicted close price of the next trading day:",
-    round(y_test_pred[plot_range - 1], 2),
+    "Predicted close price of the next trading day: ${:.2f}".format(
+        y_test_pred[plot_range - 1]
+    )
 )
