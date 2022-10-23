@@ -1,3 +1,4 @@
 {
-  "extends": "next/core-web-vitals"
+  // fix babel parser error
+  "extends": ["next/babel", "next/core-web-vitals"]
 }
