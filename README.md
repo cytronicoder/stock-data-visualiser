@@ -29,7 +29,9 @@ python lstm-model/train.py
 **Experimental: I am currently developing a web app to pair with this project.** You can run the web app using the following command:
 
 ```bash
-python app.py
+cd client
+yarn install
+yarn run dev
 ```
 
 ## Next Steps
