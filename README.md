@@ -32,19 +32,6 @@ yarn install
 yarn run dev
 ```
 
-## Next Steps
-
-- [ ] Build web app using Flask/Next.js
-  - [ ] Integrate model into web app
-  - [ ] Request for academic data acess from Alpha Vantage
-  - [ ] Add more features to the web app (e.g. stock graph, crypto data, etc.)
-- [ ] Refine model code to make it more efficient and accurate
-  - [ ] Tweak configurations
-- [ ] Documentations
-  - [ ] Build documentation using Sphinx/Nextra
-  - [ ] Deploy documentation using Vercel if using Nextra
-  - [ ] Add more comments to code
-
 ## Contributing
 
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change. Please make sure to update tests as appropriate. If you have any questions, feel free to open an issue. I will try to respond as soon as possible.
