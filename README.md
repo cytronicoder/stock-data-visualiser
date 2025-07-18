@@ -1,4 +1,4 @@
-### 🚀 I will be working on this experiment again during summer 2023... stay tuned!
+### 📂 This repository is now archived as a finished project.
 
 # Stock Data Visualiser
 
